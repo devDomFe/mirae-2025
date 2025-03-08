@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import SakuraFall from "./components/SakuraFall";
+import StartButton from "./components/StartButton";
+import useSound from "use-sound";
+import { useState } from "react";
+
+import springSnow from "../public/SprintSnow.mp3";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [playSound] = useSound(springSnow, { volume: 0.015, loop: true });
+  const [clicked, setClicked] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="bg-[#f7e5e3] min-h-screen w-full">
+      <div className="h-[2000px] relative">
+        {clicked ? <SakuraFall /> : null}
+
+        <div className="h-screen relative">
+          <StartButton
+            onClick={() => {
+              setClicked(true);
+              playSound();
+            }}
+          />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
