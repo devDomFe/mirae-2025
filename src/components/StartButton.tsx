@@ -1,30 +1,39 @@
 import { AwesomeButtonProgress } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface StartButtonProps {
   onClick: () => void;
 }
 
 export default function StartButton({ onClick }: StartButtonProps) {
-  const [hidden, setHidden] = useState(false);
-
-  if (hidden) return null;
+  const [isVisible, setIsVisible] = useState(true);
 
   return (
-    <div className="inline-block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <AwesomeButtonProgress
-        type="primary"
-        onPress={async (element, next) => {
-          onClick();
-          next();
-          setTimeout(() => {
-            setHidden(true);
-          }, 700);
-        }}
-      >
-        Click me!
-      </AwesomeButtonProgress>
-    </div>
+    <AnimatePresence initial={false}>
+      {isVisible ? (
+        <motion.div
+          className="inline-block"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
+          key="box"
+        >
+          <AwesomeButtonProgress
+            type="primary"
+            onPress={async (_, next) => {
+              onClick();
+              next();
+              setTimeout(() => {
+                setIsVisible(false);
+              }, 1000);
+            }}
+          >
+            Click me!
+          </AwesomeButtonProgress>
+        </motion.div>
+      ) : null}
+    </AnimatePresence>
   );
 }
