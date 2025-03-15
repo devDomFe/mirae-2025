@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+body {
+  background-color: #f7e5e3;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
 &::-webkit-scrollbar-track {
   background-color: #f7e5e3;
 }
