@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@theme {
+  --font-playpen: "Playpen Sans", "cursive";
+}
 body {
   background-color: #f7e5e3;
 }

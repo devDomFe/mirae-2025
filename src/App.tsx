@@ -4,6 +4,8 @@ import useSound from "use-sound";
 import { useState, useEffect } from "react";
 import Message from "./components/Message";
 import FlipCardLayout from "./components/FlipCardLayout";
+import Cake from "./components/Cake";
+import "./App.css";
 
 import springSnow from "../public/SprintSnow.mp3";
 
@@ -34,9 +36,10 @@ function App() {
         }}
       />
 
-      <div className="flex flex-col items-center gap-20 w-1/2 z-10">
+      <div className="flex flex-col items-center gap-20 w-1/2 z-10 relative">
         {showContent && (
           <>
+            {showCards && <Cake />}
             <Message onComplete={() => setShowCards(true)} />
             {showCards && <FlipCardLayout />}
           </>

@@ -10,11 +10,11 @@ export default function Message({ onComplete }: { onComplete: () => void }) {
         transition={{ duration: 2, ease: "easeIn" }}
       >
         <TypeAnimation
-          sequence={["Lorem, ipsum.", 800]}
+          sequence={["Happy Birthday, love.", 800]}
           wrapper="span"
           cursor={false}
           speed={50}
-          className="text-5xl font-semibold"
+          className="text-3xl font-playpen"
         />
       </motion.div>
       <motion.div
@@ -24,14 +24,14 @@ export default function Message({ onComplete }: { onComplete: () => void }) {
       >
         <TypeAnimation
           sequence={[
-            "Lorem ipsum dolor sit amet consectetur  adipisicing elit Cupiditate quaerat debitis consequatur in sapiente dignissimos dicta repudiandae nesciunt commodi ipsam nisi optio minima iusto voluptatem earum corporis",
+            "May you enjoy the rest of your day mahal and always be filled with happiness. Know that no matter what, you’ll always have me by your side. You are a gift in my life sobra, and I truly appreciate your presence. May the Lord continue to guide and bless you always. I love you bebe!",
             1000,
             () => onComplete(),
           ]}
           wrapper="span"
           cursor={false}
           speed={50}
-          className="text-xl"
+          className="text-sm font-playpen"
         />
       </motion.div>
     </div>
