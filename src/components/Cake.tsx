@@ -1,4 +1,4 @@
-import "./cake.css";
+import "../styles/cake.css";
 import { motion } from "motion/react";
 
 export default function Cake() {

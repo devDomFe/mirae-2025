@@ -24,7 +24,7 @@ export default function SakuraFall() {
 
   return (
     <Snowfall
-      snowflakeCount={480}
+      snowflakeCount={60}
       images={sakuraImages}
       radius={[10, 20]}
       wind={[-0.5, 0.5]}

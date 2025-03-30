@@ -1,9 +1,16 @@
 import { motion } from "motion/react";
 import { TypeAnimation } from "react-type-animation";
+import ScrollIndicator from "./ScrollIndicator";
 
-export default function Message({ onComplete }: { onComplete: () => void }) {
+export default function Message({
+  onComplete,
+  showCards,
+}: {
+  onComplete: () => void;
+  showCards: boolean;
+}) {
   return (
-    <div className="text-center w-[80%] flex flex-col gap-4">
+    <div className="text-center w-[80%] flex flex-col gap-4 h-[60vh] relative">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -34,6 +41,12 @@ export default function Message({ onComplete }: { onComplete: () => void }) {
           className="text-sm font-playpen"
         />
       </motion.div>
+
+      {showCards && (
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          <ScrollIndicator />
+        </div>
+      )}
     </div>
   );
 }

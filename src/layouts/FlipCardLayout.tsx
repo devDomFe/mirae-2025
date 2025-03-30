@@ -1,4 +1,4 @@
-import FlipCard from "./FlipCard";
+import FlipCard from "../components/FlipCard";
 import { motion } from "motion/react";
 
 const images = Array.from({ length: 10 }, (_, i) => `/sky/${i + 1}.jpg`);
@@ -6,7 +6,7 @@ const images = Array.from({ length: 10 }, (_, i) => `/sky/${i + 1}.jpg`);
 export default function FlipCardLayout() {
   return (
     <motion.div
-      className="w-[70%] flex flex-col items-center gap-40 pb-80"
+      className="w-[70%] flex flex-col items-center gap-40 pb-40"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2, ease: "easeIn", delay: 1 }}
